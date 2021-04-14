@@ -18,7 +18,11 @@ public class Inventory extends ProductStockContainer{
     public Inventory() {
         initialize();
     }
-
+    
+    /**
+     * Gets an int value of the stock of a product
+     * @param p : Product
+     */
     @Override
     public int getProductQuantity(Product p) {
         for (ProductStockPair pair : products) {
@@ -28,7 +32,12 @@ public class Inventory extends ProductStockContainer{
         }
         return -1;
     }
-
+    
+    /**
+     * Adds a product and its quantity
+     * @param p : Product
+     * @param q : int
+     */
     @Override
     public void addProductQuantity(Product p, int q) {
         // no negative ids please
@@ -44,7 +53,12 @@ public class Inventory extends ProductStockContainer{
         products.add(new ProductStockPair(p, q));
         numOfProducts++;
     }
-
+    
+    /**
+     * Removes a product and its quantity
+     * @param p : Product
+     * @param q : int
+     */
     @Override
     public boolean removeProductQuantity(Product p, int q) {
         for (int i = 0; i < products.size(); i++) {
@@ -59,16 +73,25 @@ public class Inventory extends ProductStockContainer{
         }
         return false;
     }
-
+    
+    /**
+     * Returns the number of products
+     */
     @Override
     public int getNumOfProducts() {
         return numOfProducts;
     }
-
+    
+    /**
+     * Returns the list of products from ProductStockPair
+     */
     public List<ProductStockPair> getProducts() {
         return new ArrayList<>(products);
     }
-
+    
+    /**
+     * Initializes all the products and their quantities
+     */
     private void initialize() {
         // can add some default inventory stock here
         this.addProductQuantity(new Product(100.0, "Apples", 0), 76);
