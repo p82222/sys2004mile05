@@ -12,18 +12,30 @@ public class StoreManager {
     private final Inventory storeInventory = new Inventory();
     private final List<ShoppingCart> shoppingCarts = new ArrayList<>();
     private int shoppingCartCounter = 0;
-
+    
+    /**
+     * Gets the product stock
+     * @param p
+     */
     public int getProductStock(Product p) {
         return storeInventory.getProductQuantity(p);
     }
-
-    // makes a new cart and returns the cartid
+    
+    /**
+     * Makes a new cart and returns the cartid 
+     */
     public int assignNewCartID() {
         int id = shoppingCartCounter++;
         shoppingCarts.add(new ShoppingCart(id));
         return id;
     }
-
+    
+    /**
+     * Adds a product and amount of that product to the cart
+     * @param cartID
+     * @param p
+     * @param amount
+     */
     public boolean addToCart(int cartID, Product p, int amount) {
         if (storeInventory.removeProductQuantity(p, amount)) {
             for (ShoppingCart cart : shoppingCarts) {
@@ -37,7 +49,13 @@ public class StoreManager {
         }
         return false;
     }
-
+    
+    /**
+     * Removes a product and amount of that product to the cart
+     * @param cartID
+     * @param p
+     * @param amount
+     */
     public boolean removeFromCart(int cartID, Product p, int amount) {
         for (ShoppingCart cart : shoppingCarts) {
             if (cart.getCartID() == cartID) {
@@ -50,11 +68,18 @@ public class StoreManager {
         }
         return false;
     }
-
+    
+    /**
+     * Gets the available products from the Inventory
+     */
     public List<ProductStockPair> getAvailableProducts() {
         return storeInventory.getProducts();
     }
-
+    
+    /**
+     * Gets the contents that were added to the cart
+     * @param cartID
+     */
     public List<ProductStockPair> getCartContents(int cartID) {
         for (ShoppingCart cart : shoppingCarts) {
             if (cart.getCartID() == cartID) {
@@ -67,7 +92,10 @@ public class StoreManager {
         return null; // just give an empty ArrayList if not found
     }
 
-    // on quit
+     /**
+     * Clears the cart on exit
+     * @param cartID
+     */
     public void clearCartContents(int cartID) {
         for (ShoppingCart cart : shoppingCarts) {
             if (cart.getCartID() == cartID) {
@@ -81,7 +109,11 @@ public class StoreManager {
             }
         }
     }
-
+    
+     /**
+     * Gets the total for the items in the cart
+     * @param cartID
+     */
     public double getCartTotal(int cartID) {
         for (ShoppingCart cart : shoppingCarts) {
             if (cart.getCartID() == cartID) {
@@ -90,11 +122,19 @@ public class StoreManager {
         }
         return -1.0;
     }
-
+    
+     /**
+     * Gets the number of products
+     */
     public int getNumOfProducts() {
         return storeInventory.getNumOfProducts();
     }
-
+    
+     /**
+     * Checks if product is in the cart
+     * @param cartID
+     * @param p
+     */
     public boolean isInCart(int cartID, Product p) {
         for (ShoppingCart sC : shoppingCarts) {
             if (sC.getCartID() == cartID) {
