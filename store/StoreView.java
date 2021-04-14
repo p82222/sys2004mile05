@@ -18,13 +18,20 @@ public class StoreView {
     private final int cartID;
     private final int PRODUCT_FRAME_SIZE = 240;
     private final JFrame frame;
-
+    
+     /**
+     * Constructor for StoreView
+     * @param sm
+     */
     public StoreView(store.StoreManager sm) {
         this.sm = sm;
         cartID = sm.assignNewCartID();
         frame = new JFrame();
     }
-
+    
+     /**
+     * Makes the button panel for the GUI
+     */
     private JPanel makeButtonPanel() {
         JPanel panel = new JPanel(new BorderLayout());
         panel.setPreferredSize(new Dimension(200, 650));
@@ -103,7 +110,10 @@ public class StoreView {
         panel.add(editorPane, BorderLayout.PAGE_END);
         return panel;
     }
-
+    
+    /**
+     * Makes the browse panel for the GUI
+     */
     private JPanel makeBrowsePanel() {
         JPanel panel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         panel.setPreferredSize(new Dimension(500,
@@ -115,7 +125,12 @@ public class StoreView {
         }
         return panel;
     }
-
+    
+    /**
+     * Adds the product to the frame of the GUI
+     * @param p
+     * @param pane 
+     */
     private void addProductFrame(store.Product p, Container pane) {
         JPanel panel = new JPanel(new BorderLayout());
         panel.setPreferredSize(new Dimension(PRODUCT_FRAME_SIZE, PRODUCT_FRAME_SIZE));
@@ -199,7 +214,10 @@ public class StoreView {
 
         pane.add(panel);
     }
-
+    
+    /**
+     * Displays the GUI with certain dimensions and labels
+     */
     public void displayGUI() {
         frame.setSize(740,700);
         frame.setResizable(false);
@@ -230,7 +248,7 @@ public class StoreView {
         });
         frame.setVisible(true);
     }
-
+    
     public static void main(String[] args) {
         StoreManager sm = new StoreManager();
         StoreView sv1 = new StoreView(sm);
