@@ -9,7 +9,12 @@ public class ProductStockPair {
 
     public final Product product;
     public final int stock;
-
+    
+    /**
+     * Constructor for product and stock
+     * @param product
+     * @param stock
+     */
     public ProductStockPair(Product product, int stock) {
         this.product = product;
         this.stock = stock;
