@@ -21,7 +21,7 @@ public class Inventory extends ProductStockContainer{
     
     /**
      * Returns an int value of the stock of a product
-     * @param p : Product
+     * @param p
      */
     @Override
     public int getProductQuantity(Product p) {
@@ -35,8 +35,8 @@ public class Inventory extends ProductStockContainer{
     
     /**
      * Adds a product and its quantity
-     * @param p : Product
-     * @param q : int
+     * @param p 
+     * @param q 
      */
     @Override
     public void addProductQuantity(Product p, int q) {
@@ -56,8 +56,8 @@ public class Inventory extends ProductStockContainer{
     
     /**
      * Removes a product and its quantity
-     * @param p : Product
-     * @param q : int
+     * @param p
+     * @param q 
      */
     @Override
     public boolean removeProductQuantity(Product p, int q) {
