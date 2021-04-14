@@ -9,21 +9,21 @@ public abstract class ProductStockContainer {
     
     /**
      * Abstract method for use in another class
-     * @param p : Product
+     * @param p 
      */
     public abstract int getProductQuantity(Product p);
     
     /**
      * Abstract method for use in another class
-     * @param p : Product
-     * @param quantity : int
+     * @param p 
+     * @param quantity 
      */
     public abstract void addProductQuantity(Product p, int quantity);
     
     /**
      * Abstract method for use in another class
-     * @param p : Product
-     * @param quantity : int
+     * @param p 
+     * @param quantity
      */
     public abstract boolean removeProductQuantity(Product p, int quantity);
     
