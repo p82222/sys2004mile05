@@ -20,7 +20,7 @@ public class Inventory extends ProductStockContainer{
     }
     
     /**
-     * Gets an int value of the stock of a product
+     * Returns an int value of the stock of a product
      * @param p : Product
      */
     @Override
