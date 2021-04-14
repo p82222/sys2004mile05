@@ -13,11 +13,19 @@ public class ShoppingCart extends ProductStockContainer {
     private int numOfProducts = 0;
     private final int cartID;
     private double total = 0.0;
-
+    
+    /**
+     * Constructor for ShoppingCart
+     * @param cartID
+     */
     public ShoppingCart(int cartID) {
         this.cartID = cartID;
     }
-
+    
+    /**
+     * Returns an int value of the stock of a product
+     * @param p
+     */
     @Override
     public int getProductQuantity(Product p) {
         for (ProductStockPair pair : products) {
@@ -27,7 +35,12 @@ public class ShoppingCart extends ProductStockContainer {
         }
         return -1;
     }
-
+    
+    /**
+     * Adds a product and its quantity
+     * @param p 
+     * @param q 
+     */
     @Override
     public void addProductQuantity(Product p, int q) {
         // no negative ids please
@@ -45,7 +58,12 @@ public class ShoppingCart extends ProductStockContainer {
         products.add(new ProductStockPair(p, q));
         numOfProducts++;
     }
-
+    
+    /**
+     * Removes a product and its quantity
+     * @param p
+     * @param q 
+     */
     @Override
     public boolean removeProductQuantity(Product p, int q) {
         for (int i = 0; i < products.size(); i++) {
@@ -61,19 +79,31 @@ public class ShoppingCart extends ProductStockContainer {
         }
         return false;
     }
-
+    
+    /**
+     * Gets the number of products 
+     */
     @Override
     public int getNumOfProducts() {
         return numOfProducts;
     }
-
+    
+    /**
+     * Gets the list of products 
+     */
     public List<ProductStockPair> getProducts() {
         return new ArrayList<>(products);
     }
-
+    
+    /**
+     * Gets the total  
+     */
     public double getTotal() {
         return total;
     }
-
+    
+    /**
+     * Gets the cart id
+     */
     public int getCartID() { return cartID; }
 }
